@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import useCart from '../../hooks/userCart'
 import {HomeContext} from '../../pages/Home'
+import {Link} from 'react-router-dom'
 
 export default function ProductItem(props) {
 	const homeContext = useContext(HomeContext);
@@ -23,9 +24,12 @@ export default function ProductItem(props) {
 						<a onClick={selectItem} href="javascript:void(0)" title="Shoppingb Cart">
 							<i className="fas fa-shopping-cart"></i>
 						</a>
-						<a href="#" title="Quick View">
+						<Link to={`/product/${props.id}`} title="Quick View">
 							<i className="fas fa-search"></i>
-						</a>
+						</Link>
+						{/*<a href="" title="Quick View">
+							<i className="fas fa-search"></i>
+						</a>*/}
 						
 					</div>
 					<div className="sale-tag">

@@ -7,6 +7,28 @@ export default function ProductList() {
 	var arrProduct = apiListProduct['data'];
 	const [listProduct, setListProduct] = useState(arrProduct);
 
+	const orderAToZ = () => {
+		let orderListProduct = listProduct.sort(function(a, b) {
+			let str1 = a.name.toLowerCase()
+			let str2 = b.name.toLowerCase()
+
+			return str1.localeCompare(str2) ? 1 : -1
+		});
+
+		setListProduct([...orderListProduct])
+	}
+
+	const orderZToA = () => {
+		let orderListProduct = listProduct.sort(function(a, b) {
+			let str1 = a.name.toLowerCase()
+			let str2 = b.name.toLowerCase()
+
+			return str1.localeCompare(str2) ? -1 : 1
+		});
+
+		setListProduct([...orderListProduct])
+	}
+
 	const orderLowToHigh = () => {
 		let orderListProduct = listProduct.sort(function(a, b) {
 			return parseInt(a.final_price) > parseInt(b.final_price) ? 1 : -1
@@ -62,11 +84,11 @@ export default function ProductList() {
 						<div className="shop-widget">
 							<h3 className="shop-title">SHOP BY</h3>
 							<ul className="shop-link">
-								<li><a href="#">Name: A-Z</a></li>
-								<li><a href="#">Name: Z-A</a></li>
+								<li><a href="javascript:void(0)" onClick={orderAToZ}>Name: A-Z</a></li>
+								<li><a href="javascript:void(0)" onClick={orderZToA}>Name: Z-A</a></li>
 								<li><a href="javascript:void(0)" onClick={orderHighToLow}>Price: High to Low</a></li>
 								<li><a href="javascript:void(0)" onClick={orderLowToHigh}>Price: Low to High</a></li>
-								<li><a href="#">Product: Top Sales</a></li>
+								<li><a href="javascript:void(0)">Product: Top Sales</a></li>
 							</ul>
 						</div>
 
