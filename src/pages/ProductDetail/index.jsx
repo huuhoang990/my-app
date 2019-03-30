@@ -13,7 +13,7 @@ function ProductDetail(props) {
 			return
 		}
 	});
-console.log(productItem);
+
   return (
     <>
       <section class="shop-details-area pt-100 pb-100">

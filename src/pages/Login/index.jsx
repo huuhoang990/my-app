@@ -2,16 +2,32 @@ import React, { useState } from 'react';
 import Header from '../../component/Header'
 import Footer from '../../component/Footer'
 import { HomeContext } from '../Home'
+import firebaseApp from '../../firebase'
+import {withRouter} from 'react-router-dom'
 
 const Provider = HomeContext.Provider
 
-function LoginPage() {
-	const [state, setState] = useState({email:'', password:'', bgd: ''})
+function LoginPage(props) {
+	const [state, setState] = useState({email:'', password:''})
+	const [stateStatus, setStateStatus] = useState()
 
-	const handleSubmit = event => {
-		//alert('A name was submitted: ' + state);
-		alert("email: " + state.email + " / " + "password: " + state.password)
+	const handleSubmit = async event => {
 		event.preventDefault();
+
+		try {
+			const result = await firebaseApp.auth().signInWithEmailAndPassword(state.email, state.password);
+
+			if (result) {
+				if (result) {
+					props.history.push({pathname: "/"})
+				}
+			}
+		} catch(err) {
+			setStateStatus(err['message'])
+		}
+
+		//alert('A name was submitted: ' + state);
+		//alert("email: " + state.email + " / " + "password: " + state.password)
 	}
 
 	const handleChange = event => {
@@ -21,12 +37,10 @@ function LoginPage() {
 			bg = 'blue';
 		}
 
-		console.log(state);
-
 		const name = event.target.name
 		const value = event.target.value
 
-		setState({...state,bgd : bg, [name]: value})
+		setState({...state, [name]: value})
 
 		/*
 		if (event.target.id == "name") {
@@ -40,7 +54,7 @@ function LoginPage() {
 
   return (
     <Provider value={{ state, setState }}>
-      <Header />
+      {/*<Header />*/}
       <section className="login-area pt-100 pb-100">
         <div className="container">
           <div className="row">
@@ -49,7 +63,7 @@ function LoginPage() {
                 <h3 className="text-center mb-60">Login From</h3>
                 <form action="#" onSubmit={handleSubmit}>
                   <label for="name">Email Address <span>**</span></label>
-                  <input id="name" name="email" type="text" onChange={handleChange} style={{backgroundColor: state.bgd}} placeholder="Enter Username or Email address..." />
+                  <input id="name" name="email" type="text" onChange={handleChange} placeholder="Enter Username or Email address..." />
                   <label for="pass">Password <span>**</span></label>
                   <input id="pass" name="password" type="password" onChange={handleChange} placeholder="Enter password..." />
                   <div className="login-action mb-20 fix">
@@ -61,6 +75,9 @@ function LoginPage() {
                       <a href="#">Lost your password?</a>
                     </span>
                   </div>
+				  <p style={{color:'red'}}>
+					  {stateStatus}
+				  </p>
                   <button className="btn theme-btn-2 w-100">Login Now</button>
                   <div className="or-divide"><span>or</span></div>
                   <button className="btn theme-btn w-100">Register Now</button>
@@ -75,4 +92,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);

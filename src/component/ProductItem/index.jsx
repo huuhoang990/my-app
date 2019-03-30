@@ -24,7 +24,7 @@ export default function ProductItem(props) {
 						<a onClick={selectItem} href="javascript:void(0)" title="Shoppingb Cart">
 							<i className="fas fa-shopping-cart"></i>
 						</a>
-						<Link to={`/product/${props.id}`} title="Quick View" target="_blank">
+						<Link to={`/product/${props.id}`} title="Quick View" >
 							<i className="fas fa-search"></i>
 						</Link>
 						{/*<a href="" title="Quick View">

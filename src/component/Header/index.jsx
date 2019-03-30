@@ -3,15 +3,36 @@ import useCart from '../../hooks/userCart';
 import {HomeContext} from '../../pages/Home'
 
 export default function Header() {
-	const homeContext = useContext(HomeContext);
-	const arrProductSelect = homeContext.product_select
+	const homeContext = useContext(HomeContext)
+	var arrProductSelect = homeContext.product_select
+	const [numberProduct, SetNumberProduct] = useState(0)
+	let numberSelectProduct = 0
 	let total = 0
 
-	arrProductSelect.forEach(element => {
-		total += element.finalPrice * element.quantity;
-	});
+	if (arrProductSelect.length > 0) {
+		arrProductSelect.forEach(element => {
+			total += element.finalPrice * element.quantity
+			numberSelectProduct += element.quantity
+		});
+	}
 
 	function ProductCart(props) {
+		const deleteProduct = (productId) => {
+			arrProductSelect.forEach((element, idx) => {
+				console.log(productId);
+
+				if (element.id == productId) {
+					console.log(1234567);
+					arrProductSelect = arrProductSelect.splice(idx, 1);
+					console.log(arrProductSelect.splice(idx, 1));
+					SetNumberProduct(arrProductSelect)
+					return;
+				}
+			});
+			console.log(arrProductSelect);
+
+		}
+
 		if (props.productName != null) {
 			return (
 			<li>
@@ -33,8 +54,8 @@ export default function Header() {
 					</div>
 				</div>
 				<div className="del-icon">
-					<a href="#">
-						<i className="far fa-trash-alt"></i>
+					<a href="javascript:void(0)" id={props.id} onClick={() => deleteProduct(`${props.id}`)}>
+						<i id={props.id} className="far fa-trash-alt"></i>
 					</a>
 				</div>
 			</li>
@@ -53,6 +74,7 @@ export default function Header() {
 						<div className="logo">
 							<a href="#"><img src="./assets/logo_shop.png" alt=""/></a>
 						</div>
+						{numberProduct}
 
 						<div className="category-menu">
 							<h4>Category</h4>
@@ -115,12 +137,13 @@ export default function Header() {
 									<a className="search-btn nav-search search-trigger" href="#"><i className="fas fa-search"></i></a>
 								</li>
 								<li className="login-btn"><a href="#"><i className="far fa-user"></i></a></li>
-								<li className="d-shop-cart"><a href="#"><i className="fas fa-shopping-cart"></i> <span className="cart-count">3</span></a>
+								<li className="d-shop-cart"><a href="#"><i className="fas fa-shopping-cart"></i> <span className="cart-count">{numberSelectProduct}</span></a>
 									<ul className="minicart">
 										{
-										arrProductSelect.map(element =>
+										arrProductSelect && arrProductSelect.map(element =>
 															<ProductCart
 																key={element.id}
+																id={element.id}
 																productName={element.productName}
 																finalPrice={element.finalPrice}
 																previousPrice={element.previousPrice}

@@ -9,12 +9,13 @@ import NotFound from './pages/NotFound'
 //import Login from './pages/Login';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import PrivateRoute from './component/PrivateRoute'
 
 ReactDOM.render(
 	<Router>
 		<Switch>
 			<Route exact path="/" component={Home} />
-			<Route path="/product/:id" component={ProductDetail} />
+			<PrivateRoute path="/product/:id" component={ProductDetail} />
 			<Route path="/login" component={Login} />
 			<Route path="/register" component={Register} />
 			<Route component={NotFound} />

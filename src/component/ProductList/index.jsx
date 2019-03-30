@@ -8,11 +8,11 @@ export default function ProductList() {
 	const [listProduct, setListProduct] = useState(arrProduct);
 
 	const orderAToZ = () => {
-		let orderListProduct = listProduct.sort(function(a, b) {
+		var orderListProduct = listProduct.sort(function(a, b) {
 			let str1 = a.name.toLowerCase()
 			let str2 = b.name.toLowerCase()
 
-			return str1.localeCompare(str2) ? 1 : -1
+			return str1.localeCompare(str2)
 		});
 
 		setListProduct([...orderListProduct])
@@ -23,7 +23,7 @@ export default function ProductList() {
 			let str1 = a.name.toLowerCase()
 			let str2 = b.name.toLowerCase()
 
-			return str1.localeCompare(str2) ? -1 : 1
+			return str2.localeCompare(str1)
 		});
 
 		setListProduct([...orderListProduct])
@@ -40,6 +40,14 @@ export default function ProductList() {
 	const orderHighToLow = () => {
 		let orderListProduct = listProduct.sort(function(a, b) {
 			return parseInt(a.final_price) < parseInt(b.final_price) ? 1 : -1
+		});
+
+		setListProduct([...orderListProduct])
+	}
+
+	const orderBestSell = () => {
+		let orderListProduct = listProduct.sort(function(a, b) {
+			return parseInt(a.order_count_dd_1000_cod) < parseInt(b.order_count_dd_1000_cod) ? 1 : -1
 		});
 
 		setListProduct([...orderListProduct])
@@ -88,7 +96,7 @@ export default function ProductList() {
 								<li><a href="javascript:void(0)" onClick={orderZToA}>Name: Z-A</a></li>
 								<li><a href="javascript:void(0)" onClick={orderHighToLow}>Price: High to Low</a></li>
 								<li><a href="javascript:void(0)" onClick={orderLowToHigh}>Price: Low to High</a></li>
-								<li><a href="javascript:void(0)">Product: Top Sales</a></li>
+								<li><a href="javascript:void(0)" onClick={orderBestSell}>Product: Top Sales</a></li>
 							</ul>
 						</div>
 
