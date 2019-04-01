@@ -36,7 +36,7 @@ function RegisterPage(props) {
 
   return (
     <Provider value={{ state, setState }}>
-      {/*<Header />*/}
+      {<Header />}
       <section class="login-area pt-100 pb-100">
         <div class="container">
           <div class="row">

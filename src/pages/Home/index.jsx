@@ -4,7 +4,7 @@ import Footer from '../../component/Footer'
 import ProductList from '../../component/ProductList'
 import logo from '../../assets/logo_shop.png';
 import './Home.css';
-import {withRouter} from 'react-router-dom'
+
 
 export const HomeContext = React.createContext()
 export const Provider = HomeContext.Provider

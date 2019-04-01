@@ -10,24 +10,21 @@ const Provider = HomeContext.Provider
 function LoginPage(props) {
 	const [state, setState] = useState({email:'', password:''})
 	const [stateStatus, setStateStatus] = useState()
+	console.log(props);
 
 	const handleSubmit = async event => {
 		event.preventDefault();
 
 		try {
 			const result = await firebaseApp.auth().signInWithEmailAndPassword(state.email, state.password);
-
 			if (result) {
-				if (result) {
-					props.history.push({pathname: "/"})
-				}
+				props.history.push({
+					pathname	: props.location.state.from.pathname
+				})
 			}
 		} catch(err) {
 			setStateStatus(err['message'])
 		}
-
-		//alert('A name was submitted: ' + state);
-		//alert("email: " + state.email + " / " + "password: " + state.password)
 	}
 
 	const handleChange = event => {
@@ -54,7 +51,7 @@ function LoginPage(props) {
 
   return (
     <Provider value={{ state, setState }}>
-      {/*<Header />*/}
+      {<Header />}
       <section className="login-area pt-100 pb-100">
         <div className="container">
           <div className="row">

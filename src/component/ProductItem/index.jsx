@@ -1,5 +1,4 @@
 import React, {useState, useContext} from 'react'
-import useCart from '../../hooks/userCart'
 import {HomeContext} from '../../pages/Home'
 import {Link} from 'react-router-dom'
 
