@@ -4,10 +4,20 @@ import Footer from '../../component/Footer'
 import ProductList from '../../component/ProductList'
 import logo from '../../assets/logo_shop.png';
 import './Home.css';
+import store from '../../redux/store'
+import { loginRequest, loginSuccess, loginFail } from '../../redux/login/loginAction'
 
 
 export const HomeContext = React.createContext()
 export const Provider = HomeContext.Provider
+store.subscribe(() => {
+	var state = store.getState()
+	console.log(state)
+})
+store.dispatch(loginRequest())
+
+store.dispatch(loginSuccess())
+store.dispatch(loginFail())
 
 function Home() {
 	const [listSelectProduct, setSelectProduct] = useState([]);
