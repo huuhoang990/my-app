@@ -21,9 +21,7 @@ export default function Cart(props) {
 				console.log(productId);
 
 				if (element.id == productId) {
-					console.log(1234567);
 					arrProductSelect = arrProductSelect.splice(idx, 1);
-					console.log(arrProductSelect.splice(idx, 1));
 					SetNumberProduct(arrProductSelect)
 					return;
 				}

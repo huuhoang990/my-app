@@ -1,15 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Home from './pages/Home';
-import ProductDetail from './pages/ProductDetail';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import NotFound from './pages/NotFound'
+//import Home from './pages/Home';
+//import ProductDetail from './pages/ProductDetail';
+//import Login from './pages/Login';
+//import Register from './pages/Register';
+//import NotFound from './pages/NotFound'
 //import Login from './pages/Login';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import PrivateRoute from './component/PrivateRoute'
+import withLazy from './hoc/withLazy'
+
+const Home = withLazy(() => import('./pages/Home'))
+const Login = withLazy(() => import('./pages/Login'))
+const Register = withLazy(() => import('./pages/Register'))
+const NotFound = withLazy(() => import('./pages/NotFound'))
+const ProductDetail = withLazy(() => import('./pages/ProductDetail'))
 
 ReactDOM.render(
 	<Router>
