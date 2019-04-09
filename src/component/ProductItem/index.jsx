@@ -1,15 +1,14 @@
 import React, {useState, useContext} from 'react'
-import {HomeContext} from '../../pages/Home'
+//import {HomeContext} from '../../pages/Home'
 import {Link} from 'react-router-dom'
 
 export default function ProductItem(props) {
-	const homeContext = useContext(HomeContext);
-
+	//const homeContext = useContext(HomeContext);
 	const [selectProduct, setSelectProduct] = useState('');
 
 	const selectItem = () => {
 		setSelectProduct("(Da chon san pham nay)")
-		homeContext.callSetProduct(props)
+		//homeContext.callSetProduct(props)
 	}
 
 	return (
@@ -26,10 +25,6 @@ export default function ProductItem(props) {
 						<Link to={`/product/${props.id}`} title="Quick View" >
 							<i className="fas fa-search"></i>
 						</Link>
-						{/*<a href="" title="Quick View">
-							<i className="fas fa-search"></i>
-						</a>*/}
-						
 					</div>
 					<div className="sale-tag">
 						<span className="sale">{props.id}</span>

@@ -1,5 +1,5 @@
 import React, {useState ,useContext} from 'react'
-import {HomeContext} from '../../pages/Home'
+//import {HomeContext} from '../../pages/Home'
 
 export default function Cart(props) {
 	const homeContext = useContext(HomeContext)

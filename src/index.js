@@ -11,6 +11,8 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import PrivateRoute from './component/PrivateRoute'
 import withLazy from './hoc/withLazy'
+import store from "./redux/store";
+import { Provider } from "react-redux";
 
 const Home = withLazy(() => import('./pages/Home'))
 const Login = withLazy(() => import('./pages/Login'))
@@ -19,15 +21,17 @@ const NotFound = withLazy(() => import('./pages/NotFound'))
 const ProductDetail = withLazy(() => import('./pages/ProductDetail'))
 
 ReactDOM.render(
-	<Router>
-		<Switch>
-			<Route exact path="/" component={Home} />
-			<PrivateRoute path="/product/:id" component={ProductDetail} />
-			<Route path="/login" component={Login} />
-			<Route path="/register" component={Register} />
-			<Route component={NotFound} />
-		</Switch>
-	</Router>,
+	<Provider store={store}>
+		<Router>
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<PrivateRoute path="/product/:id" component={ProductDetail} />
+				<Route path="/login" component={Login} />
+				<Route path="/register" component={Register} />
+				<Route component={NotFound} />
+			</Switch>
+		</Router>
+	</Provider>,
 	document.getElementById('root')
 );
 

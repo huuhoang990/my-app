@@ -1,3 +1,4 @@
+/*
 import React, { useState } from 'react';
 import Header from '../../component/Header'
 import Footer from '../../component/Footer'
@@ -38,15 +39,6 @@ function LoginPage(props) {
 		const value = event.target.value
 
 		setState({...state, [name]: value})
-
-		/*
-		if (event.target.id == "name") {
-			setState({...state, email: event.target.value})
-
-		} else if (event.target.id == "pass") {
-			setState({...state, password: event.target.value})
-		}
-		*/
 	}
 
   return (
@@ -90,3 +82,4 @@ function LoginPage(props) {
 }
 
 export default withRouter(LoginPage);
+*/

@@ -1,9 +1,39 @@
+import React from "react"
+import './Home.css';
+import Footer from "../../component/Footer"
+import ProductListContainer from "../../component/ProductList/ProductListContainer"
+
+function Home(props) {
+	return (
+		<>
+			<ProductListContainer/>
+			<Footer/>
+		</>
+	)
+}
+
+export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 import React, { useState } from 'react';
+import './Home.css';
 import Header from '../../component/Header'
 import Footer from '../../component/Footer'
 import ProductList from '../../component/ProductList'
 import logo from '../../assets/logo_shop.png';
-import './Home.css';
 import store from '../../redux/store'
 import { loginRequest, loginSuccess, loginFail } from '../../redux/login/loginAction'
 
@@ -52,3 +82,4 @@ function Home() {
 }
 
 export default Home;
+*/

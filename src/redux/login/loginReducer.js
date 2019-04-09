@@ -1,4 +1,4 @@
-import {GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_LOGIN_FAIL} from './loginAction'
+import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL} from './LoginAction'
 
 const initialState = {
 	result : null,
@@ -8,20 +8,12 @@ const initialState = {
 
 export default function loginReducer(state = initialState, action) {
 	switch (action.type) {
-		case GET_LOGIN_REQUEST:
-			return Object.assign({}, state, {
-				load: true
-			})
-		case GET_LOGIN_SUCCESS:
-			return Object.assign({}, state, {
-				load: false,
-				result: action.payload
-			})
-		case GET_LOGIN_FAIL:
-			return Object.assign({}, state, {
-				load: false,
-				result: action.error
-			})
+		case LOGIN_REQUEST:
+			return {...state, load: true}
+		case LOGIN_SUCCESS:
+			return {...state, load: false, result: action.payload}
+		case LOGIN_FAIL:
+			return {...state, load: false, fail: action.console.error}
 		default:
 			return state
 	}

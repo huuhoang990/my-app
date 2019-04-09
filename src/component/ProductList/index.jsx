@@ -1,13 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ProductItem from './../ProductItem/'
 import SearchBar from './search'
-import apiListProduct from '../../dataProductList.json'
+//import apiListProduct from '../../dataProductList.json'
 
-export default function ProductList() {
-	var arrProduct = apiListProduct['data'];
-	const [listProduct, setListProduct] = useState(arrProduct);
+export default function ProductList(props) {
+	//var arrProduct = apiListProduct['data'];
+	//const [listProduct, setListProduct] = useState('');
+	console.log(props)
 
+	useEffect(() => {
+		props.getProducts()
+	  }, [])
 	const orderAToZ = () => {
+		/*
 		var orderListProduct = listProduct.sort(function(a, b) {
 			let str1 = a.name.toLowerCase()
 			let str2 = b.name.toLowerCase()
@@ -16,9 +21,11 @@ export default function ProductList() {
 		});
 
 		setListProduct([...orderListProduct])
+		*/
 	}
 
 	const orderZToA = () => {
+		/*
 		let orderListProduct = listProduct.sort(function(a, b) {
 			let str1 = a.name.toLowerCase()
 			let str2 = b.name.toLowerCase()
@@ -27,30 +34,37 @@ export default function ProductList() {
 		});
 
 		setListProduct([...orderListProduct])
+		*/
 	}
 
 	const orderLowToHigh = () => {
+		/*
 		let orderListProduct = listProduct.sort(function(a, b) {
 			return parseInt(a.final_price) > parseInt(b.final_price) ? 1 : -1
 		});
 
 		setListProduct([...orderListProduct])
+		*/
 	}
 
 	const orderHighToLow = () => {
+		/*
 		let orderListProduct = listProduct.sort(function(a, b) {
 			return parseInt(a.final_price) < parseInt(b.final_price) ? 1 : -1
 		});
 
 		setListProduct([...orderListProduct])
+		*/
 	}
 
 	const orderBestSell = () => {
+		/*
 		let orderListProduct = listProduct.sort(function(a, b) {
 			return parseInt(a.order_count_dd_1000_cod) < parseInt(b.order_count_dd_1000_cod) ? 1 : -1
 		});
 
 		setListProduct([...orderListProduct])
+		*/
 	}
 
 	return (
@@ -68,7 +82,22 @@ export default function ProductList() {
 					<div className="tab-content" id="myTabContent">
 						<div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 							<div className="row">
-								{listProduct.map(element =><ProductItem
+							{
+								props.products && props.products.map((element, index) => {
+									return (
+										<ProductItem key={element.id} 
+										key={element.id} 
+										productName={element.name} 
+										shopName={element.shop_name}
+										imageProduct={element.img_url}
+										finalPrice={element.final_price}
+										previousPrice={element.price}
+										id={element.id}
+										/>
+									);
+								})
+							}
+								{/*listProduct.map(element =><ProductItem
 															key={element.id} 
 															productName={element.name} 
 															shopName={element.shop_name}
@@ -77,7 +106,7 @@ export default function ProductList() {
 															previousPrice={element.price}
 															id={element.id}
 														/>
-												)}
+								)*/}
 							</div>
 						</div>
 					</div>
