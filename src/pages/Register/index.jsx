@@ -1,3 +1,14 @@
+import React from 'react';
+import RegisterForm from '../../component/RegisterForm'
+
+export default function RegisterPage(props) {
+	return (
+		<>
+		<RegisterForm {...props} />
+		</>
+	)
+}
+
 /*
 import React, { useState } from 'react';
 import Header from '../../component/Header'

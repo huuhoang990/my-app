@@ -1,7 +1,7 @@
 import React, {useState ,useContext} from 'react'
 import Cart from './Cart'
 
-export default function Header() {
+export default function Header(props) {
 	return(
 		<header>
 		<div id="header-sticky" className="header-area box-90 sticky-header">
@@ -74,7 +74,7 @@ export default function Header() {
 								</li>
 								<li className="login-btn"><a href="#"><i className="far fa-user"></i></a></li>
 								{window.location.pathname == "/" ? (
-									<Cart/>
+									<Cart {...props}/>
 								) : (<></>)
 								}
 

@@ -7,7 +7,6 @@ const initialState = {
 }
 
 export default function productListReducer(state = initialState, action) {
-	console.log(state)
 	switch (action.type) {
 		case PRODUCT_LIST_REQUEST:
 			return {

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { getProducts } from '../../redux/ProductList/ProductListAction'
+import { getProducts, setArrProduct } from '../../redux/ProductList/ProductListAction'
 import ProductList from './'
 
 const mapStateToProps = (state) => ({
@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-	getProducts: getProducts
+	getProducts: getProducts,
+	setArrProduct: setArrProduct
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList)

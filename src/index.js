@@ -13,6 +13,8 @@ import PrivateRoute from './component/PrivateRoute'
 import withLazy from './hoc/withLazy'
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import LoginContainer from './pages/Login/LoginContainer'
+import RegisterContainer from './pages/Register/RegisterContainer'
 
 const Home = withLazy(() => import('./pages/Home'))
 const Login = withLazy(() => import('./pages/Login'))
@@ -26,8 +28,8 @@ ReactDOM.render(
 			<Switch>
 				<Route exact path="/" component={Home} />
 				<PrivateRoute path="/product/:id" component={ProductDetail} />
-				<Route path="/login" component={Login} />
-				<Route path="/register" component={Register} />
+				<Route path="/login" component={LoginContainer} />
+				<Route path="/register" component={RegisterContainer} />
 				<Route component={NotFound} />
 			</Switch>
 		</Router>

@@ -11,7 +11,7 @@ const reducer = combineReducers({
 	productDetailReducer,
 	productListReducer
 })
-console.log(thunk)
+
 const store = createStore(
 	reducer,
 	compose(

@@ -1,18 +1,55 @@
-import React from 'react';
-import {withRouter} from 'react-router-dom'
-import LoginForm from '../../component/LoginForm'
-import Footer from '../../component/Footer'
+import React, { useState } from "react"
 
-function LoginPage(props) {
+export default function LoginForm(props) {
+	const [state, setState] = useState({email:'', password:''})
+	const [stateStatus, setStateStatus] = useState()
+	const handleSubmit = async event => {
+		event.preventDefault();
+		props.sendLogin(state.email, state.password)
+	}
+
+	const handleChange = event => {
+		const name = event.target.name
+		const value = event.target.value
+
+		setState({...state, [name]: value})
+	}
+
 	return (
-		<>
-			<LoginForm {...props}/>
-			<Footer/>
-		</>
-	);
+		<section className="login-area pt-100 pb-100">
+		<div className="container">
+			<div className="row">
+			<div className="col-lg-8 offset-lg-2">
+				<div className="basic-login">
+				<h3 className="text-center mb-60">Login From</h3>
+				<form action="#" onSubmit={handleSubmit}>
+					<label htmlFor="name">Email Address <span>**</span></label>
+					<input id="name" name="email" type="text" onChange={handleChange} placeholder="Enter Username or Email address..." />
+					<label htmlFor="pass">Password <span>**</span></label>
+					<input id="pass" name="password" type="password" onChange={handleChange} placeholder="Enter password..." />
+					<div className="login-action mb-20 fix">
+					<span className="log-rem f-left">
+						<input id="remember" type="checkbox" />
+						<label htmlFor="remember">Remember me!</label>
+					</span>
+					<span className="forgot-login f-right">
+						<a href="#">Lost your password?</a>
+					</span>
+					</div>
+					<p style={{color:'red'}}>
+					</p>
+					<button className="btn theme-btn-2 w-100">Login Now</button>
+					<div className="or-divide"><span>or</span></div>
+					<button className="btn theme-btn w-100">Register Now</button>
+				</form>
+				</div>
+			</div>
+			</div>
+		</div>
+		</section>
+	)
 }
 
-export default withRouter(LoginPage);
 
 /*
 import React, { useState } from 'react';
