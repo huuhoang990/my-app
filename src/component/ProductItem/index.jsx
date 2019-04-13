@@ -51,8 +51,8 @@ export default function ProductItem(props) {
 					</h4>
 					<div className="product-meta">
 						<div className="pro-price">
-							<span>${parseInt(props.final_price).toLocaleString()}</span>
-							<span className="old-price">${parseInt(props.price).toLocaleString()}</span>
+							<span>{parseInt(props.final_price).toLocaleString()}VND</span>
+							<span className="old-price">{parseInt(props.price).toLocaleString()}VND</span>
 						</div>
 					</div>
 				</div>
