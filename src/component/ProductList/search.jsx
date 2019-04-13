@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function SearchBar() {
-	const [state, setStrText] = useState("");
+export default function SearchBar(props) {
+	const [searchText, setSearchText] = useState("");
 
 	const handleChange = event => {
-		setStrText(event.target.value)
-		console.log(state);
+		setSearchText(event.target.value)
 	}
-	
+
 	const handleSubmit = event => {
-		alert('A name was submitted: ' + state);
-		event.preventDefault();
+		event.preventDefault()
+		let urlText = encodeURI(searchText)
+		props.getSearchProducts(urlText)
 	}
 
 	return (
 		<form action="#"  onSubmit={handleSubmit} className="shop-search">
-			<input type="text" placeholder="Your keyword...." value={state.value} onChange={handleChange} />
+			<input type="text" placeholder="Your keyword...." value={searchText.value} onChange={handleChange} />
 			<button><i className="fa fa-search"></i></button>
 		</form>
 	);

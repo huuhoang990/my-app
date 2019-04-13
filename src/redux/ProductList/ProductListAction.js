@@ -43,3 +43,16 @@ export function setArrProduct(arr) {
 		dispatch(productListSuccess([...arr]))
 	}
 }
+
+export function getSearchProducts(textSearch) {
+	return (dispatch) => {
+		dispatch(productListRequest())
+
+		return fetch("https://mapi.sendo.vn/mob/product/search?p=1&q=" + textSearch)
+			.then(r => r.json())
+			.then(result => {
+				return dispatch(productListSuccess(result.data_ads))
+			})
+			.catch(error => dispatch(productListFail(error)))
+	}
+}

@@ -5,6 +5,7 @@ import SearchBar from './search'
 import Header from './../Header'
 
 export default function ProductList(props) {
+	console.log(props)
 	useEffect(() => {
 		props.getProducts()
 	}, [])
@@ -90,7 +91,7 @@ export default function ProductList(props) {
 						<div className="sidebar-shop">
 							<div className="shop-widget">
 								<h3 className="shop-title">Search by</h3>
-								<SearchBar></SearchBar>
+								<SearchBar {...props}></SearchBar>
 							</div>
 
 							<div className="shop-widget">
