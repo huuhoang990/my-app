@@ -51,7 +51,7 @@ export function getSearchProducts(textSearch) {
 		return fetch("https://mapi.sendo.vn/mob/product/search?p=1&q=" + textSearch)
 			.then(r => r.json())
 			.then(result => {
-				return dispatch(productListSuccess(result.data_ads))
+				return dispatch(productListSuccess(result.data))
 			})
 			.catch(error => dispatch(productListFail(error)))
 	}
