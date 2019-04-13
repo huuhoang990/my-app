@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import ProductItem from './../ProductItem/'
-import SearchBar from './search'
+import SearchBar from './SearchBar'
 //import apiListProduct from '../../dataProductList.json'
 import Header from './../Header'
 
