@@ -109,7 +109,7 @@ export default function ProductList(props) {
 								<ul className="shop-sidebar-product">
 									<li>
 										<div className="side-pro-img">
-											<a href="#"><img src="./assets/shop-rsp3.jpg" alt="" /></a>
+											<a href="#">{/*<img src="./assets/shop-rsp3.jpg" alt="" />*/}</a>
 										</div>
 										<div className="side-pro-content">
 											<div className="side-pro-rating">
@@ -127,7 +127,7 @@ export default function ProductList(props) {
 									</li>
 									<li>
 										<div className="side-pro-img">
-											<a href="#"><img src="./assets/shop-rsp2.jpg" alt="" /></a>
+											<a href="#">{/*<img src="./assets/shop-rsp2.jpg" alt="" />*/}</a>
 										</div>
 										<div className="side-pro-content">
 											<div className="side-pro-rating">
@@ -145,7 +145,7 @@ export default function ProductList(props) {
 									</li>
 									<li>
 										<div className="side-pro-img">
-											<a href="#"><img src="./assets/shop-rsp4.jpg" alt="" /></a>
+											<a href="#">{/*<img src="./assets/shop-rsp4.jpg" alt="" />*/}</a>
 										</div>
 										<div className="side-pro-content">
 											<div className="side-pro-rating">
@@ -166,7 +166,7 @@ export default function ProductList(props) {
 
 							<div className="shop-widget">
 								<div className="shop-sidebar-banner">
-									<a href="#"><img src="./assets/shop-banner.jpg" alt="" /></a>
+									<a href="#">{/*<img src="./assets/shop-banner.jpg" alt="" />*/}</a>
 								</div>
 							</div>
 						</div>

@@ -12,7 +12,7 @@ export default function Footer() {
 						<div className="col-xl-5 col-lg-6 col-md-6 ">
 							<div className="footer-widget mb-40 pr-70">
 								<div className="footer-logo">
-									<a href="#"><img src="./assets/logo_shop.png" alt="" /></a>
+									<a href="#">{<img src="./assets/logo_shop.png" alt="" />*/}</a>
 								</div>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
 									ut labore et dolore mag na
@@ -21,7 +21,7 @@ export default function Footer() {
 								</p>
 								<div className="footer-time d-flex mt-30">
 									<div className="time-icon">
-										<img src="./assets/time.png" alt="" />
+										{/*<img src="./assets/time.png" alt="" />*/
 									</div>
 									<div className="time-text">
 										<span>Got Questions ? Call us 24/7!</span>

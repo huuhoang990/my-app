@@ -9,7 +9,7 @@ export default function Header(props) {
 				<div className="row align-items-center">
 					<div className="col-xl-2 col-lg-6 col-md-6 col-7 col-sm-5 d-flex align-items-center pos-relative">
 						<div className="logo">
-							<a href="#"><img src="./assets/logo_shop.png" alt=""/></a>
+							<a href="#">{/*<img src="./assets/logo_shop.png" alt=""/>*/}</a>
 						</div>
 
 						<div className="category-menu">
