@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 
 export default function Cart(props) {
-	console.log(props)
 	let arrProductSelect = props.products?props.products:[]
 
 	if (props.products != null && props.products.length > 0) {

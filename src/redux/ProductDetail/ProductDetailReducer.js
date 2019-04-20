@@ -7,10 +7,11 @@ import {
 const initialState = {
 	result: null,
 	load: false,
-	fail: null
+	error: null
   };
   
   export default function productDetailReducer(state = initialState, action) {
+	  console.log(state)
 	switch (action.type) {
 		case PRODUCT_DETAIL_REQUEST:
 			return { ...state, load: true, result: action.type };

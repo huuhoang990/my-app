@@ -21,6 +21,7 @@ const Login = withLazy(() => import('./pages/Login'))
 const Register = withLazy(() => import('./pages/Register'))
 const NotFound = withLazy(() => import('./pages/NotFound'))
 const ProductDetail = withLazy(() => import('./pages/ProductDetail'))
+const Thankyou = withLazy(() => import('./pages/Thankyou'))
 
 ReactDOM.render(
 	<Provider store={store}>
@@ -30,6 +31,7 @@ ReactDOM.render(
 				<PrivateRoute path="/product/:id" component={ProductDetail} />
 				<Route path="/login" component={LoginContainer} />
 				<Route path="/register" component={RegisterContainer} />
+				<Route path="/thankyou" component={Thankyou} />
 				<Route component={NotFound} />
 			</Switch>
 		</Router>

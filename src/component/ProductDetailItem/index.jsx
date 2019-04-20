@@ -1,25 +1,9 @@
 import React from 'react'
-import {withRouter} from 'react-router-dom'
-import ProductDetailContainer from "./ProductDetailContainer"
 
-function ProductDetail(props) {
-	return (
-		<>
-		<ProductDetailContainer {...props} />
-		</>
-	)
-}
+export default  function ProductDetail(props) {
 
-export default withRouter(ProductDetail)
-
-/*import React from 'react'
-import {withRouter} from 'react-router-dom'
-import apiListProduct from '../../dataProductList.json'
-import ReduxProductDetail from "./ProductDetailContainer"
-
-function ProductDetail(props) {
 	var idProduct = props.match.params.id
-	var arrProduct = apiListProduct['data'];
+	var arrProduct = props.productList;
 	var productItem
 	
 	arrProduct.forEach(function(element, idx) {
@@ -28,6 +12,10 @@ function ProductDetail(props) {
 			return
 		}
 	});
+
+	const goThankYou = () => {
+		props.history.push({pathname: "../Thankyou"})
+	}
 
   return (
     <>
@@ -135,7 +123,7 @@ function ProductDetail(props) {
                         <button class="details-action-icon" type="submit"><i class="fas fa-heart"></i></button>
                         <button class="details-action-icon" type="submit"><i class="fas fa-hourglass"></i></button>
                         <div class="details-cart mt-40">
-                          <button class="btn theme-btn">purchase now</button>
+                          <button type="button" class="btn theme-btn" onClick={goThankYou}>purchase now</button>
                         </div>
                       </form>
                     </div>
@@ -492,9 +480,6 @@ function ProductDetail(props) {
           </div>
         </div>
       </section>
-    </>
+  </>
   )
 }
-
-export default withRouter(ProductDetail)
-*/
